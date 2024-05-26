@@ -14,12 +14,50 @@
     <!-- font-awesome -->
     <link rel="stylesheet" href="css/all.min.css" />
     <!-- bootstrap -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- main style -->
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <h1>BookMark App</h1>
+    <section class="bookmark my-5">
+      <div class="container">
+        <h1 class="site-heading">
+          <span> BookMark App </span>
+        </h1>
+        <div class="bookmark-body my-5 py-5">
+          <h2 class="sub-heading bookmark-icon text-center h3">
+            <span> Bookmark your favorite sites </span>
+          </h2>
+          <div class="bookmark-form">
+            <div class="mb-3">
+              <label for="siteName" class="form-label fw-bold">
+                <i class="fa-solid fa-book-bookmark"></i>
+                <span>Site Name</span>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="siteName"
+                placeholder="Bookmark Name"
+              />
+            </div>
+
+            <div class="mb-3 mt-4">
+              <label for="siteName" class="form-label fw-bold">
+                <i class="fa-solid fa-link"></i>
+                <span>Site Link</span>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="siteLink"
+                placeholder="Website URL"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script src="js/index.js"></script>
   </body>
 </html>
