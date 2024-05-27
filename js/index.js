@@ -1,14 +1,55 @@
 var siteName = document.getElementById("siteName");
 var siteLink = document.getElementById("siteLink");
 var tableBody = document.getElementById("tableBody");
+var dialog = document.getElementById("dialog");
 // get whats in the localstorage or make a new array
 var bookmarksArr = JSON.parse(localStorage.getItem("bookmarksContainer")) || [];
+var nameRegex = /^[A-Za-z0-9]{3,}$/;
+var urlRegex = /^(www.{1})?([A-Za-z0-9]{1,10})\.([A-Za-z]{1,})$/;
+
 displayData(bookmarksArr);
+
+function validateSiteName() {
+  var regex = /^[A-Za-z0-9]{3,}$/;
+  var siteNameVal = siteName.value;
+
+  if (regex.test(siteNameVal)) {
+    siteName.classList.add("is-valid");
+    siteName.classList.remove("is-invalid");
+    return true;
+  } else {
+    siteName.classList.add("is-invalid");
+    siteName.classList.remove("is-valid");
+    return false;
+  }
+}
+
+function validateSiteUrl() {
+  var regex = /^(www.{1})?([A-Za-z0-9]{1,10})\.([A-Za-z]{1,})$/;
+  var siteUrlVal = siteLink.value;
+
+  if (regex.test(siteUrlVal)) {
+    siteLink.classList.add("is-valid");
+    siteLink.classList.remove("is-invalid");
+    return true;
+  } else {
+    siteLink.classList.add("is-invalid");
+    siteLink.classList.remove("is-valid");
+    return false;
+  }
+}
 
 function deleteBookmark(bookmarkIndex) {
   bookmarksArr.splice(bookmarkIndex, 1);
   localStorage.setItem("bookmarksContainer", JSON.stringify(bookmarksArr));
   displayData(bookmarksArr);
+}
+
+function clearForm() {
+  siteName.value = null;
+  siteLink.value = null;
+  siteName.classList.remove("is-valid");
+  siteLink.classList.remove("is-valid");
 }
 
 function displayData(bookmarks) {
@@ -49,11 +90,24 @@ function getData() {
     site: siteName.value,
     url: siteLink.value,
   };
-  bookmarksArr.push(bookmark);
-  localStorage.setItem("bookmarksContainer", JSON.stringify(bookmarksArr));
+  if (validateSiteName() && validateSiteUrl()) {
+    bookmarksArr.push(bookmark);
+    localStorage.setItem("bookmarksContainer", JSON.stringify(bookmarksArr));
+  } else {
+    dialog.classList.toggle("d-none");
+  }
 }
 
 function addBookmark() {
-  getData();
-  displayData(bookmarksArr);
+  if (siteName.value !== "" && siteLink.value !== "") {
+    getData();
+    displayData(bookmarksArr);
+    clearForm();
+  } else {
+    dialog.classList.toggle("d-none");
+  }
+}
+
+function toggleDialog() {
+  dialog.classList.toggle("d-none");
 }

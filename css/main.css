@@ -2,6 +2,7 @@ body {
   font-family: "PT Sans Caption", sans-serif;
   background-color: #f7ecde;
   position: relative;
+  height: 100vh;
 }
 h1 {
   font-family: "Pacifico", cursive;
@@ -80,4 +81,69 @@ h6 {
 
 .bookmark-body .submit-btn:hover {
   background-color: #bb4120;
+}
+
+.dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* display: none; */
+}
+
+.dialog-overlay .dialog-context {
+  background-color: #fff;
+  width: 500px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 7px;
+}
+
+/* .dialog-overlay .dialog-context::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+} */
+
+.dialog-overlay .window-dots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-overlay .dots {
+  display: flex;
+  gap: 7px;
+}
+.dialog-overlay .dots span {
+  background-color: red;
+  /* margin-right: 7px; */
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.dialog-overlay .dots span:first-child {
+  background-color: #f15f5d;
+}
+
+.dialog-overlay .dots span:nth-child(2) {
+  background-color: #febe2e;
+}
+
+.dialog-overlay .dots span:last-child {
+  background-color: #4db748;
+}
+
+.dialog-overlay .dialog-content .icon-arrow {
+  color: #bb4120;
 }

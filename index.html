@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <section class="bookmark my-3">
+    <section class="bookmark py-3">
       <div class="container">
         <h1 class="site-heading pb-3">
           <span> BookMark App </span>
@@ -40,6 +40,8 @@
                 class="form-control"
                 id="siteName"
                 placeholder="Bookmark Name"
+                oninput="validateSiteName()"
+                value=""
               />
             </div>
 
@@ -49,10 +51,12 @@
                 <span>Site Link</span>
               </label>
               <input
-                type="text"
+                type="url"
                 class="form-control"
                 id="siteLink"
                 placeholder="Website URL"
+                oninput="validateSiteUrl()"
+                value=""
               />
             </div>
 
@@ -80,6 +84,39 @@
         </table>
       </div>
     </section>
+    <div id="dialog" class="dialog-overlay d-none">
+      <div class="dialog-context py-4 px-4">
+        <div class="window-dots mb-2">
+          <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <button class="btn close-dialog fs-4" onclick="toggleDialog()">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="dialog-content">
+          <p class="fw-bold">
+            Site Name or Url is not valid, Please follow the rules below :
+          </p>
+          <ul class="list-unstyled">
+            <li>
+              <span class="icon-arrow">
+                <i class="fa-regular fa-circle-right p-2"></i>
+              </span>
+              <span> Site name must contain at least 3 characters </span>
+            </li>
+            <li>
+              <span class="icon-arrow">
+                <i class="fa-regular fa-circle-right p-2"></i>
+              </span>
+              <span> Site URL must be a valid one </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <script src="js/index.js"></script>
   </body>
 </html>
