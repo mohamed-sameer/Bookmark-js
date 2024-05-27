@@ -4,6 +4,7 @@ body {
   position: relative;
   height: 100vh;
 }
+
 h1 {
   font-family: "Pacifico", cursive;
   font-weight: 400;
@@ -15,6 +16,17 @@ h4,
 h5,
 h6 {
   font-family: "Righteous", sans-serif;
+}
+
+:root {
+  --color-main: #fec260;
+  --color-black: #000;
+  --color-gradient-green: #3ca55c;
+  --color-gradient-yellow: #b5ac49;
+  --color-btn: #d1512d;
+  --color-btn-hover: #bb4120;
+  --color-white: #fff;
+  --color-overlay: rgba(0, 0, 0, 0.5);
 }
 
 /*================================*/
@@ -32,6 +44,17 @@ h6 {
   font: var(--fa-font-solid);
   content: "\f02e";
 }
+
+::-moz-selection {
+  color: #000;
+  background: var(--color-main);
+}
+
+::selection {
+  color: #000;
+  background: var(--color-main);
+}
+
 /*================================*/
 /* ======================================= */
 
@@ -49,7 +72,7 @@ h6 {
   content: "";
   width: 100%;
   height: 20px;
-  background-color: #fec260;
+  background-color: var(--color-main);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -62,39 +85,42 @@ h6 {
 }
 
 .bookmark-body {
-  border-top: 2px dotted #000;
-  border-bottom: 2px dotted #000;
+  border-top: 2px dotted var(--color-black);
+  border-bottom: 2px dotted var(--color-black);
 }
 
 .bookmark-body .sub-heading {
-  background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+  background-image: linear-gradient(
+    to right,
+    var(--color-gradient-green),
+    var(--color-gradient-yellow)
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Righteous", cursive;
 }
 
 .bookmark-body .submit-btn {
-  background-color: #d1512d;
+  background-color: var(--color-btn);
   padding: 7px 50px;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .bookmark-body .submit-btn:hover {
-  background-color: #bb4120;
+  background-color: var(--color-btn-hover);
 }
 
 .dialog-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-overlay);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* display: none; */
 }
 
 .dialog-overlay .dialog-context {
-  background-color: #fff;
+  background-color: var(--color-white);
   width: 500px;
   height: 250px;
   position: absolute;
@@ -103,17 +129,6 @@ h6 {
   transform: translate(-50%, -50%);
   border-radius: 7px;
 }
-
-/* .dialog-overlay .dialog-context::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-} */
 
 .dialog-overlay .window-dots {
   display: flex;
@@ -125,25 +140,22 @@ h6 {
   gap: 7px;
 }
 .dialog-overlay .dots span {
-  background-color: red;
-  /* margin-right: 7px; */
-  display: block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 .dialog-overlay .dots span:first-child {
-  background-color: #f15f5d;
+  background-color: var(--color-btn-hover);
 }
 
 .dialog-overlay .dots span:nth-child(2) {
-  background-color: #febe2e;
+  background-color: var(--color-main);
 }
 
 .dialog-overlay .dots span:last-child {
-  background-color: #4db748;
+  background-color: var(--color-gradient-green);
 }
 
 .dialog-overlay .dialog-content .icon-arrow {
-  color: #bb4120;
+  color: var(--color-btn-hover);
 }
