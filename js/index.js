@@ -5,8 +5,15 @@ var tableBody = document.getElementById("tableBody");
 var bookmarksArr = JSON.parse(localStorage.getItem("bookmarksContainer")) || [];
 displayData(bookmarksArr);
 
+function deleteBookmark(bookmarkIndex) {
+  bookmarksArr.splice(bookmarkIndex, 1);
+  localStorage.setItem("bookmarksContainer", JSON.stringify(bookmarksArr));
+  displayData(bookmarksArr);
+}
+
 function displayData(bookmarks) {
   var html = "";
+
   for (var i = 0; i < bookmarks.length; i++) {
     var htmlCell = `
     <tr>
@@ -23,7 +30,7 @@ function displayData(bookmarks) {
         </a>
       </td>
       <td>
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" onClick="deleteBookmark(${i})">
           <span>
             <i class="fa-solid fa-trash-can"></i>
           </span>
