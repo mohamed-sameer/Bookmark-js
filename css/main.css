@@ -1,6 +1,7 @@
 body {
   font-family: "PT Sans Caption", sans-serif;
   background-color: #f7ecde;
+  position: relative;
 }
 h1 {
   font-family: "Pacifico", cursive;
@@ -61,6 +62,7 @@ h6 {
 
 .bookmark-body {
   border-top: 2px dotted #000;
+  border-bottom: 2px dotted #000;
 }
 
 .bookmark-body .sub-heading {
@@ -68,4 +70,14 @@ h6 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Righteous", cursive;
+}
+
+.bookmark-body .submit-btn {
+  background-color: #d1512d;
+  padding: 7px 50px;
+  color: #fff;
+}
+
+.bookmark-body .submit-btn:hover {
+  background-color: #bb4120;
 }
