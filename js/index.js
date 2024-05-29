@@ -4,13 +4,11 @@ var tableBody = document.getElementById("tableBody");
 var dialog = document.getElementById("dialog");
 // get whats in the localstorage or make a new array
 var bookmarksArr = JSON.parse(localStorage.getItem("bookmarksContainer")) || [];
-var nameRegex = /^[A-Za-z0-9]{3,}$/;
-var urlRegex = /^(www.{1})?([A-Za-z0-9]{1,10})\.([A-Za-z]{1,})$/;
 
 displayData(bookmarksArr);
 
 function validateSiteName() {
-  var regex = /^[A-Za-z0-9]{3,}$/;
+  var regex = /^[A-Za-z0-9- ]{3,}$/;
   var siteNameVal = siteName.value;
 
   if (regex.test(siteNameVal)) {
@@ -25,7 +23,8 @@ function validateSiteName() {
 }
 
 function validateSiteUrl() {
-  var regex = /^(www.{1})?([A-Za-z0-9]{1,10})\.([A-Za-z]{1,})$/;
+  var regex =
+    /^((http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/;
   var siteUrlVal = siteLink.value;
 
   if (regex.test(siteUrlVal)) {
