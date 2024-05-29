@@ -22,7 +22,9 @@
   <body>
     <section class="bookmark py-4">
       <div class="container">
-        <h1 class="site-heading pb-3 pt-4">
+        <h1
+          class="site-heading d-flex justify-content-center align-items-center pb-3 pt-4"
+        >
           <span> BookMark App </span>
         </h1>
         <div class="bookmark-body my-4 py-4">
@@ -61,7 +63,10 @@
             </div>
 
             <div class="mt-4 d-flex justify-content-center align-items-center">
-              <button class="btn submit-btn" onclick="addBookmark()">
+              <button
+                class="btn submit-btn btn-disabled"
+                onclick="addBookmark()"
+              >
                 Submit
               </button>
             </div>
@@ -86,8 +91,10 @@
     </section>
     <div id="dialog" class="dialog-overlay d-none">
       <div class="dialog-context py-4 px-4">
-        <div class="window-dots mb-2">
-          <div class="dots">
+        <div
+          class="window-dots d-flex justify-content-between align-items-center mb-2"
+        >
+          <div class="dots d-flex">
             <span></span>
             <span></span>
             <span></span>
