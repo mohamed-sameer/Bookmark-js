@@ -60,9 +60,7 @@ function displayData(bookmarks) {
       <th>${i + 1}</th>
       <td>${bookmarks[i].site}</td>
       <td>
-        <a class="btn btn-success" href="https://${
-          bookmarks[i].url
-        }" target="_blank">
+        <a class="btn btn-success" href="${bookmarks[i].url}" target="_blank">
           <span>
             <i class="fa-solid fa-eye"></i>
           </span>
